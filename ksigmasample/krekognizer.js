@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const ddb = new AWS.DynamoDB.DocumentClient();
 const rekog = new AWS.Rekognition();
 
 exports.handler = function (event, context, callback) {
@@ -14,7 +15,22 @@ exports.handler = function (event, context, callback) {
     }).promise()
         .then(data => {
             console.log(data);
-            callback(null, {});
+            if (!data.Labels || data.Labels.length < 1) {
+                callback(null, {});
+                return;
+            }
+            let lbl = data.Labels[0];
+            console.log(lbl.Name)
+            ddb.put({
+                TableName: 'ksample',
+                Item: { 'label': 'lbl.Name', 'name': 's3.object.key' }
+            }).promise()
+                .then((data) => {
+                    //your logic goes here
+                })
+                .catch((err) => {
+                    //handle error
+                });
         })
         .catch(callback);
 }
