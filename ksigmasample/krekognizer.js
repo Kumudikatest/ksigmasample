@@ -23,7 +23,7 @@ exports.handler = function (event, context, callback) {
             console.log(lbl.Name)
             ddb.put({
                 TableName: 'ksample',
-                Item: { 'label': 'lbl.Name', 'name': 's3.object.key' }
+                Item: { 'label': lbl.Name, 'name': s3.object.key }
             }).promise()
                 .then((data) => {
                     //your logic goes here
