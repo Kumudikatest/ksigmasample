@@ -53,9 +53,9 @@
           "Statement": [
             {
               "Effect": "Allow",
-              "Resource": "arn:aws:rekognition:us-east-1:318300609668:*",
+              "Resource": "*",
               "Action": [
-                "*"
+                "rekognition:DetectLabels"
               ]
             }
           ]
@@ -112,7 +112,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1572943965621
+    "lastSave": 1572944559057
   },
   "VCS_STATE": {
     "provider": "GitHub",
