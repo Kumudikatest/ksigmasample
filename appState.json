@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "ksigmasample/krekognizer.js",
-        "code": "exports.handler = function(event, context, callback) {\n\n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "const AWS = require('aws-sdk');\nconst rekog = new AWS.Rekognition();\n\nexports.handler = function (event, context, callback) {\n    let s3 = event.Records[0].s3;\n    rekog.detectLabels({\n        Image: {\n            S3Object: {\n                Bucket: s3.bucket.name,\n                Name: s3.object.key\n            }\n        },\n        MaxLabels: 1\n    }).promise()\n        .then(data => {\n            console.log(data);\n            callback(null, {});\n        })\n        .catch(callback);\n}",
         "config": {
           "runtime": "nodejs10.x",
           "handler": "handler",
@@ -50,9 +50,7 @@
         }
       }
     },
-    "deletedFiles": [
-      "ksigmasample/lambda.js"
-    ],
+    "deletedFiles": [],
     "rootNode": "91eddbc7-640c-49f3-8ea5-0c18f287f328",
     "openFiles": [
       "12d26ca1-67cc-48e5-91e8-764d90d4b4f2"
@@ -86,7 +84,13 @@
       }
     ],
     "packageJSON": {
-      "dependencies": {}
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "version": "2.563.0",
+          "language": "javascript"
+        }
+      }
     }
   },
   "PROJECT_META": {
@@ -96,7 +100,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1572939850040
+    "lastSave": 1572940662064
   },
   "VCS_STATE": {
     "provider": "GitHub",
