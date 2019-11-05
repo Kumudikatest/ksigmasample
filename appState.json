@@ -1,0 +1,108 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "91eddbc7-640c-49f3-8ea5-0c18f287f328": {
+        "id": "91eddbc7-640c-49f3-8ea5-0c18f287f328",
+        "parent": null,
+        "name": "ksigmasample",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "12d26ca1-67cc-48e5-91e8-764d90d4b4f2"
+        ],
+        "isRemovable": false,
+        "filePath": "ksigmasample"
+      },
+      "12d26ca1-67cc-48e5-91e8-764d90d4b4f2": {
+        "id": "12d26ca1-67cc-48e5-91e8-764d90d4b4f2",
+        "parent": "91eddbc7-640c-49f3-8ea5-0c18f287f328",
+        "name": "krekognizer.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "ksigmasample/krekognizer.js",
+        "code": "exports.handler = function(event, context, callback) {\n\n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "s3ksample",
+            "config": {
+              "type": "s3:ObjectCreated:*",
+              "keyPrefix": "",
+              "keySuffix": ""
+            }
+          }
+        ],
+        "testCases": {
+          "16629191-52dd-49ea-9e0c-99bedba8a7e8": {
+            "id": "16629191-52dd-49ea-9e0c-99bedba8a7e8",
+            "name": "Unnamed event",
+            "functionId": "12d26ca1-67cc-48e5-91e8-764d90d4b4f2",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      }
+    },
+    "deletedFiles": [
+      "ksigmasample/lambda.js"
+    ],
+    "rootNode": "91eddbc7-640c-49f3-8ea5-0c18f287f328",
+    "openFiles": [
+      "12d26ca1-67cc-48e5-91e8-764d90d4b4f2"
+    ],
+    "currentFileId": "12d26ca1-67cc-48e5-91e8-764d90d4b4f2",
+    "resources": {
+      "s3ksample": {
+        "name": "s3ksample",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "ksample"
+          }
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "ksigmasample",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1572939850040
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "ksigmasample",
+      "url": "https://github.com/Kumudikatest/ksigmasample"
+    }
+  }
+}
