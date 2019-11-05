@@ -47,6 +47,18 @@
             "functionId": "12d26ca1-67cc-48e5-91e8-764d90d4b4f2",
             "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
           }
+        },
+        "customSecurityPolicy": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Resource": "arn:aws:rekognition:us-east-1:318300609668:*",
+              "Action": [
+                "*"
+              ]
+            }
+          ]
         }
       }
     },
@@ -100,7 +112,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1572940662064
+    "lastSave": 1572943965621
   },
   "VCS_STATE": {
     "provider": "GitHub",
